@@ -6,3 +6,6 @@ def multiply(*args):
     for arg in args:
         result *= arg
     return result
+
+def max_age(*args):
+    return max(args)
