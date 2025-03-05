@@ -36,6 +36,7 @@ class Tagebuch:
         return files
 
     def get_all_tagebuch_input_per_word(self):
+        #search files which contains a certain word
         text_ = input("Enter some info to search: ").strip()
 
         files_with_text = []
