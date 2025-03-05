@@ -33,8 +33,32 @@ class Tagebuch:
         for file_name in files:
             print(file_name)
         
+        return files
+
+    def get_all_tagebuch_input_per_word(self):
+        text_ = input("Enter some info to search: ").strip()
+
+        files_with_text = []
+
+        files = self.get_all_tagebuch_inputs()
+        for file_name in files:
+            file_name = self.folder_path + file_name
+            with open(file_name, 'r') as file:          
+
+                for line in file:
+                    if line.find(text_) != -1:
+                        #the word is in the file
+                        files_with_text.append(file_name)
+                        break
+        return files_with_text
+        
 if __name__ == "__main__":
     tagebuch = Tagebuch("tagebuch_sites/")
     tagebuch.make_input()
 
     tagebuch.get_all_tagebuch_inputs()
+
+    files_with_words = tagebuch.get_all_tagebuch_input_per_word()
+    if files_with_words:
+        for file_name in files_with_words:
+            print(file_name)
