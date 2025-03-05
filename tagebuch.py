@@ -51,6 +51,8 @@ class Tagebuch:
                         #the word is in the file
                         files_with_text.append(file_name)
                         break
+
+        print("serach per words is successful")
         return files_with_text
         
 if __name__ == "__main__":
